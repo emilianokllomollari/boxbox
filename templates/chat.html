@@ -1,0 +1,12 @@
+<a href="{{ url_for('logout') }}">logout</a><br>
+<br>
+<h1>Chats for {{ name }}</h1>
+<ul>
+    {% for chat in my_chats %}
+        <li><a href="{{url_for('view_chat', chat_id=chat.id)}}">{{ chat.name }}</a></li>
+    {% else %}
+        <li>You have no chats yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('create_chat') }}">Create New Chat</a>

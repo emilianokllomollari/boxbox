@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p class="flash">{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
 <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="form-signin w-100" style="max-width: 350px;">
         <!-- Your form content -->
         <div class="centered-form-container">
             <div class="form-signin">
-                <form action="{{ url_for('login') }}" method="post">
+                <form action="{{ url_for('login')}}" method="post">
                     <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+                    {{ form.hidden_tag() }}
                     <div class="form-floating mb-3">
                         {{ form.email(class="form-control") }}
                       <label for="floatingInput">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
                         {{ form.password(class="form-control") }}
-                      <label for="floatingPassword">Password</label>
+                      <label for="floatingPassword" >Password</label>
                     </div>
                       <!-- Forgot your password link---->
                       <div class="mb-3">
