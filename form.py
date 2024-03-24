@@ -6,7 +6,7 @@ import datetime
 class RegisterForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
-    name = StringField("Name", validators=[DataRequired()])
+    name = StringField("Name", validators=[DataRequired()], render_kw={"autocomplete": "name"})
     submit = SubmitField("Sign Me Up!")
 
 class LoginForm(FlaskForm):
