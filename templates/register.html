@@ -1,12 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-{% with messages = get_flashed_messages() %}
-      {% if messages %}
-      {% for message in messages %}
-      <p class="flash">{{ message }}</p>
-      {% endfor %}
-      {% endif %}
-      {% endwith %}
+{% for message in get_flashed_messages() %}
+<p>{{ message }}</p>
+{% endfor %}
 
 <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="form-signin w-100" style="max-width: 350px;">
