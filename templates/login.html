@@ -14,7 +14,7 @@
         <div class="centered-form-container">
             <div class="form-signin">
                 <form action="{{ url_for('login')}}" method="post">
-                    <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+                    <h1 class="h3 mb-3 fw-normal text-center">Sign In</h1>
                     {{ form.hidden_tag() }}
                     <div class="form-floating mb-3">
                         {{ form.email(class="form-control") }}
@@ -26,11 +26,11 @@
                     </div>
                       <!-- Forgot your password link---->
                       <div class="mb-3">
-                        <a href="#" class="link-primary">Forgot your password?</a>
+                        <a href="#" class="text-color">Forgot your password?</a>
                       </div>
-                      {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
+                      {{ form.submit(class="w-100 btn btn-lg button-color") }}
                     <div class="mt-4 text-center">
-                        Don't have an account? <a href="{{url_for('register')}}" class="link-primary">Sign Up</a>
+                        Don't have an account? <a href="{{url_for('register')}}" class="text-color">Sign Up</a>
                       </div>
                       
                 </form>

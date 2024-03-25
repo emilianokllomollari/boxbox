@@ -1,0 +1,57 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #343a40;/* Bootstrap dark */
+  }
+  .fixed-sidebar {
+    height: 100%;
+    overflow-y: auto;
+    position: fixed;
+    width: 18%; /* Sidebar width */
+    background-color: #000000; 
+    z-index: 1030;
+  }
+  .chat-content {
+    margin-left: 20%; /* Match the sidebar width */
+    height: 100%;
+    overflow-y: auto;
+  }
+  .navbar-fixed-top {
+    z-index: 1010;
+  }
+  #messages {
+    list-style-type: none;
+    padding: 10px;
+  }
+  #messages li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .custom-input {
+    width: 70%;
+    height: 50px;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark gray text */
+    /* Add more styling here if needed */
+  }
+  .custom-input::placeholder {
+  color: #343a40; /* Color of the placeholder text */
+}
+.custom-input:focus {
+  border-color: #4a90e2; /* Color of the border on focus */
+  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25); /* Shadow for emphasis on focus */
+}
+.custom-input::placeholder {
+    color: white; /* Change placeholder text color to white */
+    opacity: 1; /* Ensure the color doesn't get reduced in opacity */
+}
+
+.custom-input:hover {
+    background-color: #343a40; /* Keep the background color on hover */
+}
+
+.custom-input:focus {
+    border-color: inherit; /* Use if you want to keep the border color consistent on focus */
+    box-shadow: none; /* Remove the glow effect on focus if needed */
+}

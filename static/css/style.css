@@ -3,14 +3,27 @@ body {
   }
   .custom-outline {
     color: #ffffff;
-    border: 1px solid #00FFC2;
+    border: 1px solid #00A19C;
     background-color: transparent;
   }
   
   .custom-outline:hover {
     color: #000000;
-    background-color: #00FFC2;
-    border-color: #00FFC2;
+    background-color: #00A19C;
+    border-color: #00A19C;
   }
-
+  .button-color{
+    background-color: #00A19C;
+    color: white;
+  }
+  .button-color:hover{
+    background-color: #00A19C;
+    color: white;
+  }
+  .text-color{
+    color: #00A19C;
+  }
+  .text-color:hover{
+    color: #000000;
+  }
   
