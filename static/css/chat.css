@@ -1,4 +1,5 @@
 body, html {
+    overflow: hidden;
     height: 100%;
     margin: 0;
     background-color: #343a40;/* Bootstrap dark */
@@ -8,7 +9,7 @@ body, html {
     overflow-y: auto;
     position: fixed;
     width: 18%; /* Sidebar width */
-    background-color: #000000; 
+    background-color: #010101; 
     z-index: 1030;
   }
   .chat-content {
@@ -17,41 +18,111 @@ body, html {
     overflow-y: auto;
   }
   .navbar-fixed-top {
+    background-color: #343a40;
     z-index: 1010;
   }
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+  }
   #messages {
-    list-style-type: none;
-    padding: 10px;
-  }
-  #messages li {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    margin-top: 3%;
+    width: 80%;
+    height: 100vh;
+    overflow-y: auto;
+    margin-left: 20%; 
+    overflow: auto;
+    padding-right: 2%;
+    padding-bottom: 8%;
   }
 
-  .custom-input {
-    width: 70%;
+
+  .user-message {
+    background-color: #D9EDF7; /* Light blue for the user messages */
+    color: #31708F; /* Dark blue for text */
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+
+  .gemini-message {
+      background-color: #DFF0D8; /* Light green for Gemini messages */
+      color: #3C763D; /* Dark green for text */
+      padding: 5px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+  }
+
+  .gpt3_5-message {
+      background-color: #FCF8E3; /* Light yellow for GPT-3.5 messages */
+      color: #8A6D3B; /* Dark yellow for text */
+      padding: 5px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+  }
+
+  
+  .chat-input-container {
+    position: fixed; /* Fixed positioning makes the element stick to the viewport */
+    bottom: 0; /* Align to the bottom of the viewport */
+    left: 0;
+    margin-left: 0;/* Align to the left of the viewport */
+    width: 100%; /* Span the full width of the viewport */
+    background-color: #343a40; /* Light background color, change as needed */ 
+    padding-bottom: 10px;
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the children horizontally */
+    align-items: center; /* Align the children vertically */
+  }
+  .chat-container{
+    width: 60%;
+  }
+  .button-color{
+    background-color: #00A19C;
+    color: white;
+  }
+  .button-color:hover{
+    background-color: #00A19C;
+    color: white;
+  }
+  .prompt-input{
     height: 50px;
-    background-color: #f0f0f0; /* Light gray background */
-    color: #333; /* Dark gray text */
-    /* Add more styling here if needed */
+    background-color: #343a40;
+    color: white;
+    border: 1px solid lightgray;
+    resize: none;
+    overflow-y: auto;
+    font-size: 18px;
   }
-  .custom-input::placeholder {
-  color: #343a40; /* Color of the placeholder text */
-}
-.custom-input:focus {
-  border-color: #4a90e2; /* Color of the border on focus */
-  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25); /* Shadow for emphasis on focus */
-}
-.custom-input::placeholder {
-    color: white; /* Change placeholder text color to white */
-    opacity: 1; /* Ensure the color doesn't get reduced in opacity */
-}
-
-.custom-input:hover {
-    background-color: #343a40; /* Keep the background color on hover */
-}
-
-.custom-input:focus {
-    border-color: inherit; /* Use if you want to keep the border color consistent on focus */
-    box-shadow: none; /* Remove the glow effect on focus if needed */
-}
+  .prompt-input::placeholder {
+    
+    color: lightgray; /* White placeholder text */
+  }
+  .prompt-input:focus{
+    background-color: #343a40;
+    color: white;
+    outline: none;
+    border: 1px solid #ffffff;
+    box-shadow: none;
+  }
+  .prompt-send{
+    border: 1px solid lightgrey;
+    height: 50px;
+  }
+  .send-icon{
+    width: 20px;
+    height: 20px;
+  }
+  .no-chat-selected {
+    /* Adjust styles for positioning */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the element */
+    font-size: 1.2rem; /* Adjust font size as needed */
+    color: #ccc; /* Adjust color as needed */
+  }
+  .text-color-h{
+    color: #00A19C;
+  }

@@ -3,7 +3,6 @@ from flask_login import UserMixin, login_user, LoginManager, current_user, logou
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Text
-from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash, check_password_hash
 from form import RegisterForm, LoginForm, CreateChatForm, ChatForm
 from sqlalchemy.exc import SQLAlchemyError
@@ -19,7 +18,6 @@ client = OpenAI(api_key=gpt_key)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'emiliano2001'
-Bootstrap(app)
 socketio = SocketIO(app)
 
 # Configure Flask-Login
@@ -70,7 +68,7 @@ with app.app_context():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', current_user=current_user)
 
 
 # Register new users into the User database
@@ -148,16 +146,33 @@ def create_chat():
     db.session.commit()
 
     flash('New chat created successfully!')
-    return redirect(url_for('view_chat', chat_id=new_chat.id))
+    return redirect(url_for('my_chats', chat_id=new_chat.id))
 
 
-@app.route('/mychats')
+
+@app.route('/mychats', defaults={'chat_id': None})
+@app.route('/mychats/<int:chat_id>')
 @login_required
-def my_chats():
-    print(f"Current user ID: {current_user.id}")
+def my_chats(chat_id):
     my_chats = ChatSession.query.filter_by(user_id=current_user.id).all()
-    print(f"My chats: {my_chats}")
-    return render_template('chat.html', my_chats=my_chats, name = current_user.name)
+
+    if chat_id:
+        # Ensure the chat_id is an integer and exists
+        chat_id = int(chat_id)
+        # Check if the specified chat belongs to the current user and exists
+        chat = next((c for c in my_chats if c.id == chat_id), None)
+        if chat is None:
+            flash("You do not have permission to view this chat or it does not exist.")
+            return redirect(url_for('my_chats'))
+        messages = chat.messages
+
+        # Move the active chat to the beginning of the list
+        # my_chats.insert(0, my_chats.pop(my_chats.index(chat)))
+    else:
+        chat = None
+        messages = None
+
+    return render_template('chat.html', my_chats=my_chats, current_chat_id=chat_id, chat=chat, messages=messages, name=current_user.name)
 
 
 def gemini_answer(prompt):
@@ -209,19 +224,6 @@ def handle_send_message_event(data):
     # Emit only the AI response back to the client
     emit('gemini_message', {'message': gemini_response, 'sender': 'gemini'})
     emit('gpt3_5_message', {'message': gpt3_5_response, 'sender': 'gpt3_5'})
-
-
-@app.route('/chat/<int:chat_id>')
-@login_required
-def view_chat(chat_id):
-    chat = ChatSession.query.get_or_404(chat_id)
-    if chat.user_id != current_user.id:
-        flash("You do not have permission to view this chat.")
-        return redirect(url_for('home'))
-    messages = chat.messages  # Load messages to display history
-    return render_template('view_chat.html', chat=chat, messages=messages)
-
-
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
