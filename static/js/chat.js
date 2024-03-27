@@ -3,34 +3,49 @@ var socket = io.connect(location.protocol + '//' + document.domain + ':' + locat
 function appendMessage(message, sender) {
     var messagesDiv = document.getElementById('messages');
 
-    // Define prefix based on sender
-    var prefix = sender === 'user' ? 'You: ' : (sender === 'gemini' ? 'Gemini: ' : 'GPT-3.5: ');
-
-    // Create a generic div for the message
-    var messageDiv = document.createElement('div');
-    messageDiv.textContent = prefix + message; // Now prefix is correctly defined before use
-
     if (sender === 'user') {
-        messageDiv.className = 'user-message';
-        messagesDiv.appendChild(messageDiv); // Append directly for user messages
+        // User message handling
+        var messageContainer = document.createElement('div');
+        messageContainer.className = 'user-message';
+
+        var prefixSpan = document.createElement('span');
+        prefixSpan.textContent = "You:";
+        prefixSpan.className = 'user-message-prefix'; 
+
+        var messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+        messageDiv.className = 'user-message-content'; 
+
+        messageContainer.appendChild(prefixSpan);
+        messageContainer.appendChild(messageDiv);
+
+        messagesDiv.appendChild(messageContainer);
     } else {
+        // AI message handling
         var lastElement = messagesDiv.lastElementChild;
-        var rowDiv;
-        if (lastElement && lastElement.classList.contains('ai-message-container')) {
-            rowDiv = lastElement;
+        var messageContainer;
+
+        if (lastElement && lastElement.classList.contains('ai-messages-container') && lastElement.children.length < 2) {
+            messageContainer = lastElement;
         } else {
-            rowDiv = document.createElement('div');
-            rowDiv.className = 'ai-message-container d-flex justify-content-between';
-            messagesDiv.appendChild(rowDiv);
+            messageContainer = document.createElement('div');
+            messageContainer.className = 'ai-messages-container justify-content-between';
+            messagesDiv.appendChild(messageContainer);
         }
 
         var aiMessageDiv = document.createElement('div');
-        aiMessageDiv.className = sender === 'gemini' ? 'gemini-message' : 'gpt3_5-message';
-        aiMessageDiv.textContent = prefix + message;
-        rowDiv.appendChild(aiMessageDiv);
+        aiMessageDiv.className = `${sender}-message message-${sender === 'gemini' ? 'left' : 'right'}`;
+        aiMessageDiv.innerHTML = `<span class="terminal-prefix">${sender.toUpperCase()}:</span><pre>${message}</pre>`;
+        messageContainer.appendChild(aiMessageDiv);
     }
 
-    scrollToBottom(); // Ensure autoscroll is called correctly
+    scrollToBottom();
+}
+
+// Example scrollToBottom function
+function scrollToBottom() {
+    var messagesDiv = document.getElementById('messages');
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
 
@@ -154,6 +169,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+//Chat Deleteion
+// Handling the click event on the "Delete Chat" button
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(event) {
+        if (event.target.matches('.delete-chat')) {
+            event.preventDefault();
+            const chatId = event.target.getAttribute('data-chat-id');
+            if (chatId && confirm('Are you sure you want to delete this chat?')) {
+                // Emit the delete_chat event to the server with the chat ID
+                socket.emit('delete_chat', { chat_id: chatId });
+            }
+        }
+    });
+});
+
+// Handling the chat deletion confirmation from the server
+socket.on('chat_deleted', function(data) {
+    if (data && data.chat_id) {
+        // Optional: Remove the chat from the UI or notify the user
+        alert('Chat has been deleted successfully.');
+        location.reload()
+        // Example: document.querySelector(`#chat-${data.chat_id}`).remove();
+    }
+});
+
 
 
 //Part of Autoscroll

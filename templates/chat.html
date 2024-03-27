@@ -157,8 +157,10 @@
               <li>
                 <hr class="dropdown-divider bg-secondary" />
               </li>
-              <li><a class="dropdown-item text-danger d-flex align-items-center" href="#">
-                <img src="{{ url_for('static', filename='images/icons/trash.svg') }}" class="mr-2"/>Delete Chat</a>
+              <li><a class="dropdown-item text-danger d-flex align-items-center delete-chat" href="#" data-chat-id="{{chat.id}}">
+                <img src="{{ url_for('static', filename='images/icons/trash.svg') }}" class="mr-2"/>Delete Chat
+            </a>
+            
               </li>
             </ul>
           </div>
@@ -171,6 +173,7 @@
     </div>
 
     <!---------------Display messages in the chat----------------------->
+   
     <div class="main-content">
       {% if chat %}
       <div id="messages">
@@ -194,7 +197,7 @@
         </div>
         {% elif message.sender == 'user' %}
         <div class="user-message">
-          <span class="terminal-prefix">User:</span>
+          <span class="terminal-prefix">You:</span>
           <pre>{{ message.content }}</pre>
         </div>
         {% endif %} {% endfor %}

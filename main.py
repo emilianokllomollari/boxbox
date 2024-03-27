@@ -56,14 +56,14 @@ class ChatSession(db.Model, Base):
     user_id: Mapped[int] = mapped_column(db.Integer, db.ForeignKey("users.id"))
     name: Mapped[str] = mapped_column(db.String(100), nullable=False)
     user: Mapped[User] = relationship("User", back_populates="chat_sessions")
-    messages: Mapped[list["Message"]] = relationship("Message", back_populates="chat_session")
+    messages: Mapped[list["Message"]] = relationship("Message", back_populates="chat_session", cascade='all, delete-orphan')
 
 # Define the Message model class representing the messages table
 class Message(db.Model, Base):
     __tablename__ = "messages"
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
     content: Mapped[str] = mapped_column(db.String(1000))
-    chat_session_id: Mapped[int] = mapped_column(db.Integer, db.ForeignKey("chat_sessions.id"))
+    chat_session_id: Mapped[int] = mapped_column(db.Integer, db.ForeignKey("chat_sessions.id", ondelete='CASCADE'))
     sender: Mapped[str] = mapped_column(String(50))
     chat_session: Mapped[ChatSession] = relationship("ChatSession", back_populates="messages")
 
@@ -198,6 +198,22 @@ def rename_chat(chat_id):
     db.session.commit()
 
     return jsonify({'success': True, 'message': 'Chat renamed successfully.'})
+
+@socketio.on('delete_chat')
+def handle_delete_chat(data):
+    chat_id = data.get('chat_id')
+    if chat_id:
+        chat_to_delete = ChatSession.query.get(chat_id)
+        if chat_to_delete:
+            db.session.delete(chat_to_delete)
+            db.session.commit()
+            print(f"Chat {chat_id} deleted")
+            # Notify the client(s) about the deletion
+            emit('chat_deleted', {'chat_id': chat_id}, broadcast=True)
+        else:
+            print(f"Chat {chat_id} not found for deletion")
+            # Optionally, notify the client the chat was not found
+            emit('chat_delete_failed', {'error': 'Chat not found', 'chat_id': chat_id}, room=request.sid)
 
 # Gemini api call
 def gemini_answer(prompt):
