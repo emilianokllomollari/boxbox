@@ -1,15 +1,16 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request, jsonify
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Text
 from werkzeug.security import generate_password_hash, check_password_hash
-from form import RegisterForm, LoginForm, CreateChatForm, ChatForm
+from form import RegisterForm, LoginForm, CreateChatForm
 from sqlalchemy.exc import SQLAlchemyError
 from flask_socketio import SocketIO, send, emit
 import google.generativeai as genai
 from openai import OpenAI
 import datetime
+import re
 
 gemini_api = "AIzaSyD5O_kYEmvbmgtz6b_WJX8_RTw96PqYECk"
 gpt_key='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'
@@ -25,19 +26,21 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
+# Define a base class for SQLAlchemy models
 class Base(DeclarativeBase):
     pass
+# Configure the database URI and track modifications
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///boxbox.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
-
+# Define a user loader function for Flask-Login to load users by ID
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-
+# Define the User model class representing the users table in the database
 class User(UserMixin, db.Model):
     __tablename__ = "users"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -45,7 +48,8 @@ class User(UserMixin, db.Model):
     password: Mapped[str] = mapped_column(String(100))
     name: Mapped[str] = mapped_column(String(100))
     chat_sessions: Mapped[list["ChatSession"]] = relationship("ChatSession", back_populates="user")
-    
+
+# Define the ChatSession model class representing the chat_sessions table
 class ChatSession(db.Model, Base):
     __tablename__ = "chat_sessions"
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
@@ -54,6 +58,7 @@ class ChatSession(db.Model, Base):
     user: Mapped[User] = relationship("User", back_populates="chat_sessions")
     messages: Mapped[list["Message"]] = relationship("Message", back_populates="chat_session")
 
+# Define the Message model class representing the messages table
 class Message(db.Model, Base):
     __tablename__ = "messages"
     id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
@@ -62,10 +67,12 @@ class Message(db.Model, Base):
     sender: Mapped[str] = mapped_column(String(50))
     chat_session: Mapped[ChatSession] = relationship("ChatSession", back_populates="messages")
 
-
+# Create all database tables within the application context
 with app.app_context():
     db.create_all()
 
+
+# HomePage of the website
 @app.route('/')
 def home():
     return render_template('index.html', current_user=current_user)
@@ -102,7 +109,7 @@ def register():
         return redirect(url_for('my_chats'))
     return render_template("register.html", form=form, current_user=current_user)
 
-
+# User login
 @app.route('/login', methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -125,6 +132,7 @@ def login():
 
     return render_template("login.html", form=form, current_user=current_user)
 
+# Loggout the user
 @app.route('/logout')
 def logout():
     logout_user()
@@ -133,7 +141,7 @@ def logout():
 
 
 #3#################################################################################
-
+# Creates new chats for the usr
 @app.route('/create_chat', methods=['GET'])
 @login_required
 def create_chat():
@@ -149,32 +157,49 @@ def create_chat():
     return redirect(url_for('my_chats', chat_id=new_chat.id))
 
 
-
+# After login Page and chat Page
 @app.route('/mychats', defaults={'chat_id': None})
 @app.route('/mychats/<int:chat_id>')
 @login_required
 def my_chats(chat_id):
     my_chats = ChatSession.query.filter_by(user_id=current_user.id).all()
 
-    if chat_id:
-        # Ensure the chat_id is an integer and exists
-        chat_id = int(chat_id)
-        # Check if the specified chat belongs to the current user and exists
-        chat = next((c for c in my_chats if c.id == chat_id), None)
-        if chat is None:
-            flash("You do not have permission to view this chat or it does not exist.")
-            return redirect(url_for('my_chats'))
-        messages = chat.messages
+    chat = None
+    messages = None
 
-        # Move the active chat to the beginning of the list
-        # my_chats.insert(0, my_chats.pop(my_chats.index(chat)))
-    else:
-        chat = None
-        messages = None
+    if chat_id:
+        chat = ChatSession.query.filter_by(id=chat_id, user_id=current_user.id).first()
+        if chat:
+            messages = chat.messages
+            # Optionally move the active chat to the top
+            # my_chats.sort(key=lambda x: x.id == chat_id, reverse=True)
+        else:
+            flash("You do not have permission to view this chat or it does not exist.", "error")
+            return redirect(url_for('my_chats'))
 
     return render_template('chat.html', my_chats=my_chats, current_chat_id=chat_id, chat=chat, messages=messages, name=current_user.name)
 
+#Chat renaming function
+@app.route('/rename_chat/<int:chat_id>', methods=['POST'])
+@login_required
+def rename_chat(chat_id):
+    # Extract the new chat name from the request
+    new_name = request.json.get('newName', '')
+    if not new_name:
+        return jsonify({'success': False, 'message': 'New name is required.'}), 400
 
+    # Fetch the chat by ID and ensure it belongs to the current user
+    chat = ChatSession.query.filter_by(id=chat_id, user_id=current_user.id).first()
+    if chat is None:
+        return jsonify({'success': False, 'message': 'Chat not found or access denied.'}), 404
+
+    # Update the chat name and commit changes
+    chat.name = new_name
+    db.session.commit()
+
+    return jsonify({'success': True, 'message': 'Chat renamed successfully.'})
+
+# Gemini api call
 def gemini_answer(prompt):
     genai.configure(api_key=gemini_api)
     model = genai.GenerativeModel('gemini-pro')
@@ -182,6 +207,7 @@ def gemini_answer(prompt):
     print(response.text)
     return response.text
 
+# GPT 3.5-Turbo api call
 def ask_gpt(prompt):
     try:
         chat_completion = client.chat.completions.create(
@@ -200,6 +226,15 @@ def ask_gpt(prompt):
         return "I'm sorry, I can't complete that task right now."
 
 
+
+# Removes unnecessary symbols from the ai response
+def remove_bold_tags(text):
+    # Remove <b> tags and their contents
+    cleaned_text = re.sub(r'<b>(.*?)</b>', '', text)
+    return cleaned_text
+
+
+
 @socketio.on('send_message')
 def handle_send_message_event(data):
     chat_id = data['chat_id']
@@ -212,10 +247,15 @@ def handle_send_message_event(data):
     # Get AI response
     gemini_response = gemini_answer(message_content)
     gpt3_5_response = ask_gpt(message_content)
-    
+
+    # Remove <b> tags from AI responses
+    gemini_response_cleaned = remove_bold_tags(gemini_response)
+    gpt3_5_response_cleaned = remove_bold_tags(gpt3_5_response)
+
     # Save the AI response to the database
-    gemini_message = Message(content=gemini_response, chat_session_id=chat_id, sender='gemini')
-    gpt3_5_message = Message(content=gpt3_5_response, chat_session_id=chat_id, sender ='gpt3_5')
+    gemini_message = Message(content=gemini_response_cleaned, chat_session_id=chat_id, sender='gemini')
+    gpt3_5_message = Message(content=gpt3_5_response_cleaned, chat_session_id=chat_id, sender='gpt3_5')
+
     db.session.add(gemini_message)
     db.session.add(gpt3_5_message)
     

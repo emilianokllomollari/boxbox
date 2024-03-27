@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
+<style>
+  body {
+    background-color: #000000; /* This is a light gray color, adjust the hex code to the shade of gray you prefer */
+  }
+</style>
+
 
 {% block content %}
 {% for message in get_flashed_messages() %}
 <p>{{ message }}</p>
 {% endfor %}
-<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #343a40">
     <div class="form-signin w-100" style="max-width: 350px;">
         <!-- Your form content -->
         <div class="centered-form-container">
             <div class="form-signin">
                 <form action="{{ url_for('login')}}" method="post">
-                    <h1 class="h3 mb-3 fw-normal text-center">Sign In</h1>
+                    <h1 class="h3 mb-3 fw-normal text-center text-white">Sign In</h1>
                     {{ form.hidden_tag() }}
                     <div class="form-floating mb-3">
                         {{ form.email(class="form-control") }}
@@ -25,7 +31,7 @@
                         <a href="#" class="text-color">Forgot your password?</a>
                       </div>
                       {{ form.submit(class="w-100 btn btn-lg button-color") }}
-                    <div class="mt-4 text-center">
+                    <div class="mt-4 text-center text-white">
                         Don't have an account? <a href="{{url_for('register')}}" class="text-color">Sign Up</a>
                       </div>
                       

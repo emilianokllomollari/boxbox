@@ -1,128 +1,172 @@
-body, html {
-    overflow: hidden;
-    height: 100%;
-    margin: 0;
-    background-color: #343a40;/* Bootstrap dark */
-  }
-  .fixed-sidebar {
-    height: 100%;
-    overflow-y: auto;
-    position: fixed;
-    width: 18%; /* Sidebar width */
-    background-color: #010101; 
-    z-index: 1030;
-  }
-  .chat-content {
-    margin-left: 20%; /* Match the sidebar width */
-    height: 100%;
-    overflow-y: auto;
-  }
-  .navbar-fixed-top {
-    background-color: #343a40;
-    z-index: 1010;
-  }
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    display: flex;
-  }
-  #messages {
-    margin-top: 3%;
-    width: 80%;
-    height: 100vh;
-    overflow-y: auto;
-    margin-left: 20%; 
-    overflow: auto;
-    padding-right: 2%;
-    padding-bottom: 8%;
-  }
+body,
+html {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  background-color: #343a40;
+}
 
+/*********************  Navbar  *******************************/
+.fixed-sidebar {
+  height: 100%;
+  overflow-y: auto;
+  position: fixed;
+  width: 18%;
+  background-color: #010101;
+  z-index: 1030;
+}
 
-  .user-message {
-    background-color: #D9EDF7; /* Light blue for the user messages */
-    color: #31708F; /* Dark blue for text */
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
+.chat-content {
+  margin-left: 20%;
+  height: 100%;
+  overflow-y: auto;
+}
 
-  .gemini-message {
-      background-color: #DFF0D8; /* Light green for Gemini messages */
-      color: #3C763D; /* Dark green for text */
-      padding: 5px;
-      margin-bottom: 5px;
-      border-radius: 5px;
-  }
+.navbar-fixed-top {
+  background-color: #343a40;
+  z-index: 1010;
+}
 
-  .gpt3_5-message {
-      background-color: #FCF8E3; /* Light yellow for GPT-3.5 messages */
-      color: #8A6D3B; /* Dark yellow for text */
-      padding: 5px;
-      margin-bottom: 5px;
-      border-radius: 5px;
-  }
+/*********************  Chats  *******************************/
+.main-content {
+  display: flex;
+  margin: auto;
+}
 
-  
-  .chat-input-container {
-    position: fixed; /* Fixed positioning makes the element stick to the viewport */
-    bottom: 0; /* Align to the bottom of the viewport */
-    left: 0;
-    margin-left: 0;/* Align to the left of the viewport */
-    width: 100%; /* Span the full width of the viewport */
-    background-color: #343a40; /* Light background color, change as needed */ 
-    padding-bottom: 10px;
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center the children horizontally */
-    align-items: center; /* Align the children vertically */
-  }
-  .chat-container{
-    width: 60%;
-  }
-  .button-color{
-    background-color: #00A19C;
-    color: white;
-  }
-  .button-color:hover{
-    background-color: #00A19C;
-    color: white;
-  }
-  .prompt-input{
-    height: 50px;
-    background-color: #343a40;
-    color: white;
-    border: 1px solid lightgray;
-    resize: none;
-    overflow-y: auto;
-    font-size: 18px;
-  }
-  .prompt-input::placeholder {
-    
-    color: lightgray; /* White placeholder text */
-  }
-  .prompt-input:focus{
-    background-color: #343a40;
-    color: white;
-    outline: none;
-    border: 1px solid #ffffff;
-    box-shadow: none;
-  }
-  .prompt-send{
-    border: 1px solid lightgrey;
-    height: 50px;
-  }
-  .send-icon{
-    width: 20px;
-    height: 20px;
-  }
-  .no-chat-selected {
-    /* Adjust styles for positioning */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the element */
-    font-size: 1.2rem; /* Adjust font size as needed */
-    color: #ccc; /* Adjust color as needed */
-  }
-  .text-color-h{
-    color: #00A19C;
-  }
+#messages {
+  margin-top: 3%;
+  width: 80%;
+  height: 100vh;
+  overflow-y: auto;
+  margin-left: 20%;
+  overflow: auto;
+  padding-right: 2%;
+  padding-bottom: 8%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-messages-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.gemini-message,
+.gpt3_5-message {
+  width: 49.5%;
+  background-color: #000000;
+  color: white;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.chat-input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+  background-color: #343a40;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*********************  Message BoxBox..  *******************************/
+/*********************  Message Sender  *******************************/
+.chat-container {
+  width: 60%;
+}
+
+.button-color {
+  background-color: #00A19C;
+  color: white;
+}
+
+.button-color:hover {
+  background-color: #00A19C;
+  color: white;
+}
+
+.prompt-input {
+  height: 50px;
+  background-color: #343a40;
+  color: white;
+  border: 1px solid lightgray;
+  resize: none;
+  overflow-y: auto;
+  font-size: 18px;
+}
+
+.prompt-input::placeholder {
+
+  color: lightgray;
+}
+
+.prompt-input:focus {
+  background-color: #343a40;
+  color: white;
+  outline: none;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+}
+
+.prompt-send {
+  border: 1px solid lightgrey;
+  height: 50px;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/*********************  Hi, Name  *******************************/
+.no-chat-selected {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.text-color-h {
+  color: #00A19C;
+}
+/*********************  Sidebar  *******************************/
+.chat-item {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rename-input {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.rename-btn {
+  flex-shrink: 0;
+}
+
+.settings-button {
+  background-color: transparent;
+  border: none;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: gray;
+}
