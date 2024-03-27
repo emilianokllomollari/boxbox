@@ -89,12 +89,12 @@ html {
 }
 
 .button-color {
-  background-color: #00A19C;
+  background-color: #00C5C8;
   color: white;
 }
 
 .button-color:hover {
-  background-color: #00A19C;
+  background-color: #00C5C8;
   color: white;
 }
 
@@ -142,7 +142,7 @@ html {
 }
 
 .text-color-h {
-  color: #00A19C;
+  color: #00c5c8;
 }
 /*********************  Sidebar  *******************************/
 .chat-item {
