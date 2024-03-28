@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, request, jsonify
+from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, session
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
@@ -12,14 +12,14 @@ from openai import OpenAI
 import datetime
 import re
 
-gemini_api = "AIzaSyD5O_kYEmvbmgtz6b_WJX8_RTw96PqYECk"
+gemini_api = "AIzaSyCzQC_uvxEEDbFRhYDcdpURTQtcpFU2NGY"
 gpt_key='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'
 # Configure your OpenAI key
 client = OpenAI(api_key=gpt_key)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'emiliano2001'
-socketio = SocketIO(app)
+socketio = SocketIO(app,  manage_session=False)
 
 # Configure Flask-Login
 login_manager = LoginManager()
@@ -75,7 +75,7 @@ with app.app_context():
 # HomePage of the website
 @app.route('/')
 def home():
-    return render_template('index.html', current_user=current_user)
+    return render_template('index.html')
 
 
 # Register new users into the User database
@@ -132,6 +132,28 @@ def login():
 
     return render_template("login.html", form=form, current_user=current_user)
 
+
+# Edit user name################################################# 
+@app.route('/change-name', methods=['POST'])
+@login_required
+def change_name():
+    new_name = request.form.get('new_name')
+    if new_name:
+        # Assuming you're using Flask-Login to get the current user
+        user_id = current_user.get_id()
+        user = User.query.get(user_id)
+        if user:
+            user.name = new_name
+            db.session.commit()
+            flash('Your name has been changed successfully.', 'success')
+        else:
+            flash('User not found.', 'error')
+    else:
+        flash('Please enter a new name.', 'error')
+
+    return redirect(url_for('my_chats')) 
+
+
 # Loggout the user
 @app.route('/logout')
 def logout():
@@ -140,7 +162,7 @@ def logout():
 
 
 
-#3#################################################################################
+#3###########################################################################################################################
 # Creates new chats for the usr
 @app.route('/create_chat', methods=['GET'])
 @login_required

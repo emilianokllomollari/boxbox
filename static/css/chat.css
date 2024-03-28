@@ -51,8 +51,11 @@ html {
   margin-bottom: 10px;
 }
 
+
+
 .user-message {
-  background-color: #000000;
+  /* border: 1px solid white; */
+  background-color: #00000070;
   color: #ffffff;
   padding: 5px;
   margin-bottom: 5px;
@@ -61,12 +64,21 @@ html {
 
 .gemini-message,
 .gpt3_5-message {
+  border: 1px solid white;
   width: 49.5%;
-  background-color: #000000;
+  background-color: #00000070;
   color: white;
   padding: 5px;
   margin-bottom: 5px;
   border-radius: 5px;
+}
+
+.gemini-message pre,
+.gpt3_5-message pre,
+.user-message pre {
+  white-space: pre-wrap;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .chat-input-container {
@@ -144,6 +156,7 @@ html {
 .text-color-h {
   color: #00c5c8;
 }
+
 /*********************  Sidebar  *******************************/
 .chat-item {
   display: flex;
@@ -170,18 +183,8 @@ html {
 .dropdown-item:hover {
   background-color: gray;
 }
-/* Loader */
-.loader {
-  border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-  margin: auto;
-}
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Setting Modal */
+.btn-close-white {
+  filter: invert(100%);
 }

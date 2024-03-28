@@ -78,31 +78,20 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content bg-dark">
           <div class="modal-header">
-            <h5 class="modal-title" id="settingsModalLabel">Settings</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h5 class="modal-title text-white" id="settingsModalLabel">Settings</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <!-- Settings form or content goes here -->
-            Your settings content here.
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+          <div class="modal-body bg-dark">
+            <form action="/change-name" method="post">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" name="new_name" placeholder="New Name" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary button-color" type="submit" id="button-addon2">Save</button>
+              </div>
+          </form>
         </div>
+        </div>  
       </div>
     </div>
 
@@ -123,7 +112,6 @@
             class="rename-input form-control d-none"
             id="rename-input-{{chat.id}}"
             data-chat-id="{{chat.id}}"
-            placeholder="New name"
           />
           <a
             id="chat-btn-{{chat.id}}"
@@ -131,7 +119,7 @@
             href="{{ url_for('my_chats', chat_id=chat.id) }}"
             >{{ chat.name }}</a
           >
-          <!-------------------- Settings Dropdown --------------------->
+          <!--------------------Chat Settings Dropdown --------------------->
           <div class="btn-group">
             <button
               type="button"

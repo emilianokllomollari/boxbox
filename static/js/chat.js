@@ -196,7 +196,6 @@ socket.on('chat_deleted', function(data) {
 });
 
 
-
 //Part of Autoscroll
 function scrollToBottom() {
     var messageContainer = document.getElementById('messages');
