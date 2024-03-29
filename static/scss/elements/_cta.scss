@@ -1,0 +1,90 @@
+
+// cta area  start
+
+
+.cta-main-wrapper{
+    background-image: url(../images/cta/01.png);
+    padding: 63px 109px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media #{$md-layout} {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+    }
+    @media #{$sm-layout} {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+        padding: 15px;
+    }
+    .left{
+        .title{
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 44px;
+            margin-bottom: 40px;
+            color: #fff;
+            display: block;
+            @media #{$md-layout} {
+                font-size: 22px;
+                line-height: 33px;
+            }
+            @media #{$sm-layout} {
+                font-size: 22px;
+                line-height: 33px;
+            }
+        }
+        a.rts-btn{
+            padding: 15px 30px; 
+        }
+    }
+}
+
+.main-cta-five{
+    background-image: url(../images/cta/05.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    .ca-main-content-wrapper-left{
+        padding: 80px 0;
+        margin-left: 80px;
+        @media #{$sm-layout} {
+            margin-left: 0;
+        }
+        @media #{$large-mobile} {
+            margin-left: 0;
+            text-align: center;
+        }
+        .title{
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 44px;
+            color: #fff;
+            margin-bottom: 50px;
+            display: block;
+            @media #{$sm-layout} {
+                font-weight: 500;
+                font-size: 26px;
+                line-height: 44px;
+            }
+            br{
+                @media #{$sm-layout} {
+                    display: none;
+                }
+            }
+        }
+    }
+    .right-image-thumbnail{
+        margin-left: auto;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 30px 40px;
+        margin-right: 40px;
+    }
+}

@@ -1,0 +1,108 @@
+// common style here
+
+
+.title-conter-area{
+    text-align: center;
+    p.disc{
+        width: 35%;
+        margin: auto;
+        @media #{$smlg-device} {
+            width: 50%;
+        }
+        @media #{$md-layout} {
+            width: 80%;
+        }
+        @media #{$sm-layout} {
+            width: 100%;
+        }
+    }
+}
+
+
+h2.title{
+    @media #{$md-layout} {
+        font-size: 36px;
+        line-height: 40px;
+        br{
+            display: none;
+        }
+    }
+    @media #{$sm-layout} {
+        font-size: 32px;
+        line-height: 36px;
+    }
+    @media #{$small-mobile} {
+        font-size: 24px;
+        line-height: 30px;
+    }
+}
+
+
+.title-center-three{
+    text-align: center;
+    .pre{
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 24px;
+        color: #ffffff;
+        padding: 5px 15px;
+        background: #15203A;
+        border-radius: 17px;
+    }
+    .title{
+        font-weight: 700;
+        font-size: 55px;
+        line-height: 65px;
+        color: #083A5E;
+        margin-top: 20px;
+        text-transform: capitalize;
+        @media #{$md-layout} {
+            font-size: 36px;
+            line-height: 40px;
+            br{
+                display: none;
+            }
+        }
+        @media #{$sm-layout} {
+            font-size: 32px;
+            line-height: 36px;
+        }
+        @media #{$small-mobile} {
+            font-size: 24px;
+            line-height: 30px;
+        }
+        span{
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                height: 27px;
+                width: 179px;
+                background-image: url(../images/banner/03.png);
+                background-repeat: no-repeat;
+                left: 0;
+                bottom: -20px;
+            }
+        }
+    }
+    p{
+        color: #083A5E;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+
+
+
+
+.title-main-center-4{
+    text-align: center;
+}
+
+.bg-service-4{
+    background: #F2F8FD;
+}
+
+

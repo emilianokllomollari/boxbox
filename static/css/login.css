@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .custom-outline {
+    color: #ffffff;
+    border: 1px solid #00C5C8;
+    background-color: transparent;
+  }
+  
+  .custom-outline:hover {
+    color: #000000;
+    background-color: #00C5C8;
+    border-color: #00C5C8;
+  }
+  
+  .button-color {
+    background-color: #00C5C8;
+    color: white;
+  }
+  
+  .button-color:hover {
+    background-color: #00C5C8;
+    color: white;
+  }
+  
+  .text-color {
+    color: #00C5C8;
+  }
+  
+  .text-color:hover {
+    color: #000000;
+  }

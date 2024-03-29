@@ -1,0 +1,82 @@
+// faq area start
+
+.accordion-area-one{
+    padding: 0 200px;
+    @media #{$smlg-device} {
+        padding: 0 60px;
+    }
+    @media  #{$md-layout} {
+        padding: 0 40px;
+    }
+    @media #{$sm-layout} {
+        padding: 0;
+    }
+    .accordion{
+        .accordion-item{
+            background: #fff;
+            border: 1px solid #E6E5FF;
+            border-radius: 10px;
+            padding: 0 10px;
+            margin-bottom: 20px;
+            @media #{$sm-layout} {
+                padding: 0;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+            button{
+                font-weight: 600;
+                padding: 14px 15px;
+                font-size: 18px;
+                line-height: 36px;
+                border: none;
+                box-shadow: none;
+                background: transparent;
+                color: #083A5E;
+                text-transform: capitalize;
+                @media #{$sm-layout} {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+                &::after{
+                    background-image: none;
+                    content: '\2b';
+                    font-family: 'fontAwesome';
+                    transform: none;
+                    margin-top: -20px;
+                }
+                &[aria-expanded="true"]{
+                    &::after{
+                        content: '\f068';
+                    }
+                }
+            }
+            .accordion-body{
+                padding: 0px 15px 20px 15px;
+            }
+        }
+    }
+}
+.rts-faq-area-inner{
+    .accordion-area-one{
+        padding: 0;
+    }
+}
+
+.header-area.header-two{
+    .nav-area-main nav ul li a.links-main {
+        padding: 23px 0;
+    }
+}
+
+.index-three{
+    .accordion-area-one .accordion .accordion-item button {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 32px;
+        color: #083A5E;
+        @media #{$sm-layout} {
+            font-size: 18px;
+        }
+    }
+}

@@ -1,0 +1,171 @@
+// button area start
+
+.rts-btn{
+    padding: 13px 25px;
+    border-radius: 25px;
+    transition: .3s;
+    font-weight: 500 !important;
+    &.btn-primary{
+        background: var(--color-primary);
+        &:hover{
+            background: #151f39;
+        }
+    }
+    &.btn-blur{
+        padding: 10px 31px;
+        background: rgba(217, 217, 217, 0.06);
+        border: 1px solid rgba(151, 150, 233, 0.1);
+        backdrop-filter: blur(25px);
+        border-radius: 30px;
+        letter-spacing: 0.03em;
+        font-weight: 600;
+        color: #fff;
+        &:hover{
+            background: var(--color-primary);
+            border: 1px solid transparent;
+        }
+    }
+    &.btn-lonly{
+        color: #fff;
+        letter-spacing: 0.03em;
+        font-weight: 400;
+        padding: 0;
+    }
+    &.btn-border-p{
+        border: 1px solid #3F3EED;
+        color: var(--color-primary);
+        font-weight: 700;
+        padding: 10px 32px;
+        &:hover{
+            background: var(--color-primary);
+            border: 1px solid transparent;
+        }
+    }
+}
+
+
+
+.index-three{
+// button area start
+
+    .rts-btn{
+        padding: 13px 25px;
+        border-radius: 5px;
+        transition: .3s;
+        &.btn-primary{
+            background: var(--color-primary-2);
+            &:hover{
+                background: #083A5E;
+            }
+        }
+        &.btn-secondary{
+            background: #083A5E;
+            &:hover{
+                background: var(--color-primary-2);
+            }
+        }
+        &.btn-blur{
+            padding: 10px 31px;
+            background: rgba(217, 217, 217, 0.06);
+            border: 1px solid rgba(151, 150, 233, 0.1);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+            color: #fff;
+            &:hover{
+                background: var(--color-primary-2);
+                border: 1px solid transparent;
+            }
+        }
+        &.btn-lonly{
+            color: #fff;
+            letter-spacing: 0.03em;
+            font-weight: 400;
+            padding: 0;
+        }
+        &.btn-border-p{
+            border: 1px solid #3F3EED;
+            color: var(--color-primary-2);
+            font-weight: 700;
+            padding: 10px 32px;
+            &:hover{
+                background: var(--color-primary-2);
+                border: 1px solid transparent;
+            }
+        }
+    }
+
+}
+
+
+
+.rts-banner-area-one{
+    height: 1000px;
+    position: relative;
+    @media #{$sm-layout} {
+        height: 730px;
+    }
+    .bottom-mid-img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        img{
+            padding: 20px 20px 0 20px;
+            background: rgba(217, 217, 217, 0.06);
+            border: 1px solid rgba(151, 150, 233, 0.5);
+            border-bottom: none;
+            backdrop-filter: blur(25px);
+            border-radius: 10px 10px 0 0;
+        }
+    }   
+}
+
+.single-tools-feature{
+    padding: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: .3s;
+    border: 1px solid transparent;
+    height: 100%;
+    @media #{$small-mobile} {
+        padding: 20px;
+    }
+    &:hover{
+        border: 1px solid rgba(151, 150, 233, 0.2);
+    }
+    .icon{
+        margin-bottom: 26px;
+    }
+    .title{
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    p.disc{
+        color: #E3E3E3;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 33px;
+    }
+    a.btn-lonly{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        transition: .3s;
+        i{
+            margin-left:8px;
+            transition: .3s;
+        }
+        &:hover{
+            color:#3F3EED;
+            i{
+                color: #3F3EED;
+            }
+        }
+    }
+}

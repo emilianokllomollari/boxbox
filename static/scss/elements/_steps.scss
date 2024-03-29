@@ -1,0 +1,169 @@
+
+// steps srea
+
+.easy-steps-area-wrapper{
+    background-image: url(../images/steps/01.jpg);
+    padding: 50px;
+    border-radius: 10px;
+    @media #{$sm-layout} {
+        padding: 30px 15px;
+    }
+}
+.easy-freature-area-wrapper{
+    background-image: url(../images/steps/03.jpg);
+    padding: 77px 60px;
+    border-radius: 10px;
+    @media #{$sm-layout} {
+        padding: 15px;
+    }
+    @media #{$md-layout} {
+        padding: 15px;
+    }
+    .tab-button-area{
+        .nav{
+            @media #{$md-layout} {
+                margin-top: 30px;
+            }
+            @media #{$sm-layout} {
+                margin-top: 20px;
+            }
+            button{
+                background: linear-gradient(90deg, #E6E6FF 0%, rgba(255, 255, 255, 0) 97.93%);
+                border: 1px solid #BCBCFF;
+                border-radius: 30px;
+                padding: 12px 40px;
+                margin-bottom: 30px;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 32px;
+                color: #083A5E;
+                text-transform: capitalize;
+                transition: .3s;
+                @media #{$laptop-device} {
+                    padding: 12px 11px;
+                    font-size: 16px;
+                }
+                @media #{$smlg-device} {
+                    padding: 12px 11px;
+                    font-size: 16px;
+                }
+                @media #{$md-layout} {
+                    margin-bottom: 20px;
+                }
+                @media #{$sm-layout} {
+                    margin-bottom: 10px;
+                }
+                svg{
+                    margin-right: 20px;
+                    path{
+                        fill: var(--color-primary);
+                    }
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                &[aria-selected="true"]{
+                    background: var(--color-primary);
+                    color: #fff;
+                    svg{
+                        path{
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.easy-steps-main-wrapper{
+    padding-left: 50px;
+    @media #{$sm-layout} {
+        padding-left: 0;
+    }
+    .single-steps-area{
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        position: relative;
+        margin-bottom: 60px;
+        z-index: 1;
+        &::after{
+            position: absolute;
+            top: 66%;
+            height: 80px;
+            left: 20px;
+            width: 1px;
+            background: #E3E3E3;
+            content: '';
+        }
+        &:last-child{
+            margin-bottom: 0;
+            &::after{
+                display: none;
+            }
+        }
+        .number{
+            position: absolute;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 60px;
+            left: 66%;
+            top: 5%;
+            background: linear-gradient(180deg, #E6E6E6 41.14%, rgb(255 255 255) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            z-index: -1;
+            &.active{
+                background: linear-gradient(180deg, #C89FFC 12.56%, rgb(240 240 240) 75%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
+        .icon{
+            margin-top: 5px;
+        }
+        .info-wrapper{
+            .title{
+                margin-bottom: 15px;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 34px;
+                color: #083A5E;
+            }
+            p.disc{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #497696;
+                br{
+                    @media #{$sm-layout} {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.right-image-steps{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @media #{$md-layout} {
+        justify-content: center;
+        margin-top: 40px;
+    }
+    @media #{$sm-layout} {
+        justify-content: center;
+        margin-top: 40px;
+    }
+    img{
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.06);
+    }
+}

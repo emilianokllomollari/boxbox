@@ -1,0 +1,52 @@
+$speed: 45s;
+
+.marquee {
+  max-width: 1920px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  gap: 30px;
+  
+  &:hover &__item { animation-play-state: paused; }
+  
+  
+  &__item {
+    display: inline-block;
+    will-change: transform;
+    animation: marquee $speed+20s linear infinite;
+  }
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+
+// Styling
+
+
+.marquee {
+  max-width: 1920px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  gap: 30px;
+  
+  &:hover &__item-2 { animation-play-state: paused; }
+  
+  
+  &__item-2 {
+    display: inline-block;
+    will-change: transform;
+    animation: marquee-2 $speed+70s linear infinite;
+  }
+}
+
+@keyframes marquee-2 {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+
+// Styling

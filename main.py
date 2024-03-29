@@ -72,6 +72,16 @@ with app.app_context():
     db.create_all()
 
 
+# Get email from subscribe
+@app.route('/get-email')
+def get_email():
+    email = request.args.get('email')
+    print(email)
+    return redirect(url_for('home'))
+
+
+
+
 # HomePage of the website
 @app.route('/')
 def home():
@@ -201,6 +211,7 @@ def my_chats(chat_id):
 
     return render_template('chat.html', my_chats=my_chats, current_chat_id=chat_id, chat=chat, messages=messages, name=current_user.name)
 
+
 #Chat renaming function
 @app.route('/rename_chat/<int:chat_id>', methods=['POST'])
 @login_required
@@ -302,6 +313,25 @@ def handle_send_message_event(data):
     # Emit only the AI response back to the client
     emit('gemini_message', {'message': gemini_response, 'sender': 'gemini'})
     emit('gpt3_5_message', {'message': gpt3_5_response, 'sender': 'gpt3_5'})
+    
+###################################################################################################################
+
+
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)

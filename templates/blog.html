@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>Blog Page</title>
+    <!-- bootstrap min css -->
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/plugins/fontawesome-6.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/plugins/unicons.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/plugins/swiper.min.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/vendor/metismenu.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/vendor/bootstrap.min.css')}}" as="style">
+    <!-- custom css style -->
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/style.css')}}" as="style">
+</head>
+
+<body class="inner-page dark-version">
+
+   <!-- rts header area start -->
+   <header class="header-one header--sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-main-wrapper">
+                    <a href="index.html" class="logo">
+                        <img src="{{url_for('static', filename='images/photos/logo/01.svg')}}" alt="logo">
+                    </a>
+                    <!-- nav -->
+                    <div class="nav-area-main d-xl-block d-lg-block d-md-none d-sm-none d-none">
+                        <nav>
+                            <ul>
+                                <li><a class="links-main" href="{{url_for('home')}}">Home</a></li>
+                                <li><a class="links-main" href="{{url_for('about')}}">About</a></li>
+                                <li><a class="links-main" href="{{url_for('blog')}}">Blog</a></li>
+                                <li><a class="links-main" href="{{url_for('contact')}}">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- nav end -->
+                    <div class="button-area">
+                        <a href="{{url_for('login')}}" class="rts-btn btn-lonly mr--30">Sign in</a>
+                        <a href="{{url_for('register')}}" class="rts-btn btn-blur">Get Started</a>
+                    </div>
+
+                    <div class="menu-btn d-xl-none d-lg-none d-md-block d-sm-block" id="menu-btn">
+                        <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
+                            <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
+                            <rect width="20" height="2" fill="#1F1F25"></rect>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- rts header area end -->
+
+
+    <!-- rts breadcrumb area start-->
+    <div class="rts-bread-crumb-area bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-inne">
+                        <div class="title-area">
+                            <h1 class="bread-title">Blog Posts</h1>
+                            <div class="inner-wrapper">
+                                <a href="index.html">Home</a>/
+                                <a href="#" class="active">Blog Posts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts breadcrumb area end -->
+
+
+    <!-- rts blgo area start -->
+    <div class="rts-blog-area rts-section-gap bg-smooth">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/01.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">Five Things You Need to Know
+                                        about Writing Articles</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/04.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/02.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">blog Content</span>
+                                <span class="time">4 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">15 AI Prompts to Supercharge
+                                        Sales &amp; Marketing Teams</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/05.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/03.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">Introducing Infobase by Copy
+                                        ai: Your Team’s Brand Center</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/06.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/04.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">Five Things You Need to Know
+                                        about Writing Articles</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/04.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/05.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">blog Content</span>
+                                <span class="time">4 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">15 AI Prompts to Supercharge
+                                        Sales &amp; Marketing Teams</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/05.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/06.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">Introducing Infobase by Copy
+                                        ai: Your Team’s Brand Center</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/06.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/07.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">Five Things You Need to Know
+                                        about Writing Articles</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/04.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/08.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">blog Content</span>
+                                <span class="time">4 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">15 AI Prompts to Supercharge
+                                        Sales &amp; Marketing Teams</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/05.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="blog-details.html" class="thumbnail">
+                            <img src="assets/images/blog/09.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="blog-details.html">
+                                    <h5 class="title">Introducing Infobase by Copy
+                                        ai: Your Team’s Brand Center</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/06.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="blog-details.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts blgo area end -->
+
+
+
+
+
+    <!-- cta area start -->
+    <!-- cta area start -->
+    <div class="rts-cta-area rts-section-gapBottom  bg_faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-main-wrapper bg_image">
+                        <div class="left">
+                            <h3 class="title">
+                                All set to level up <br>
+                                your content game?
+                            </h3>
+                            <a href="about.html" class="rts-btn btn-primary">Get Started Now</a>
+                        </div>
+                        <div class="right">
+                            <img src="assets/images/cta/02.png" alt="cta-area">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- cta area end -->
+    <!-- cta area end -->
+
+
+    <!-- rts footer area start -->
+    <div class="rts-footer-area  bg-footer footer-one">
+        <div class="container rts-section-gapTop pb--100 pb_sm--30">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- footer main wrapper -->
+                    <div class="footer-one-main-wrapper">
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized left-logo">
+                            <div class="head">
+                                <a href="#">
+                                    <img src="assets/images/logo/01.svg" alt="logo">
+                                </a>
+                            </div>
+                            <div class="body">
+                                <p class="dsic">
+                                    Openup is an artificial intelligence trained to automate important tasks such writing optimized product descriptions.
+                                </p>
+                                <div class="social-style-two">
+                                    <ul>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-discord"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized">
+                            <div class="head">
+                                <h6 class="title">Company</h6>
+                            </div>
+                            <div class="body">
+                                <ul class="menu">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="#">Community</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Affiliate Program</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized">
+                            <div class="head">
+                                <h6 class="title">Use Cases</h6>
+                            </div>
+                            <div class="body">
+                                <ul class="menu">
+                                    <li><a href="#">For Teams</a></li>
+                                    <li><a href="#">For Email Marketers</a></li>
+                                    <li><a href="#">For Blog Writers</a></li>
+                                    <li><a href="#">For social managers</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized input-area">
+                            <div class="head">
+                                <h6 class="title">News & Update</h6>
+                            </div>
+                            <div class="body">
+                                <form action="">
+                                    <div class="input-area-fill">
+                                        <input type="email" placeholder="Enter Your Email" required>
+                                        <button> Subscribe</button>
+                                    </div>
+                                </form>
+                                <p class="disc">
+                                    Subscribe our newsletter for future updates. don’t worry we don’t spam your email address
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                    </div>
+                    <!-- footer main wrapper end -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- footer-copyright-area start -->
+                    <div class="copy-right-start-two">
+                        <p><a href="https://reactheme.com/" target="_blank">Reactheme©</a> 2023. All Rights Reserved.</p>
+                        <ul>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- footer-copyright-area end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts footer area end -->
+
+
+    <!-- rts backto top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <!-- rts backto top end -->
+
+
+    <script src="{{url_for('static', filename='js/vendor/jquery.min.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/vendor/metismenu.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/plugins/bootstrap.min.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/plugins/swiper.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/plugins/contact.form.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/main.js')}}" defer></script>
+
+
+</body>
+
+</html>

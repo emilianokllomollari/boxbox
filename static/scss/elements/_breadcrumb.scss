@@ -1,0 +1,49 @@
+// bareaad crumb area styele
+
+.rts-bread-crumb-area{
+    background-image: url(../images/banner/breadcrumb/01.jpg);
+    // height: 350px;
+    padding: 180px 0 100px 0;
+}
+.breadcrumb-inne{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .title-area{
+        .bread-title{
+            color: #fff;
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 44px;
+            margin-bottom: 8px;
+        }
+        .inner-wrapper{
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            a{
+                color: var(--color-primary);
+                &.active{
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.inner-page{
+    .bg_faq {
+        background: transparent;
+    }
+}
+.about-section-one.inner-about{
+    .title-left-area{
+        .pre-title-bg{
+            margin-bottom: 12px;
+        }
+    }
+}
+

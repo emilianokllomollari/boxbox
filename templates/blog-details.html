@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>Blog Details</title>
+    <!-- bootstrap min css -->
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/plugins/fontawesome-6.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/plugins/unicons.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/plugins/swiper.min.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/vendor/metismenu.css')}}" as="style">
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/vendor/bootstrap.min.css')}}" as="style">
+    <!-- custom css style -->
+    <link rel="stylesheet preload" href="{{url_for('static', filename='css/style.css')}}" as="style">
+</head>
+
+<body class="inner-page dark-version">
+
+    <!-- rts header area start -->
+    <header class="header-one header--sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="header-main-wrapper">
+                        <a href="index.html" class="logo">
+                            <img src="assets/images/logo/01.svg" alt="logo">
+                        </a>
+                        <!-- nav -->
+                        <div class="nav-area-main d-xl-block d-lg-block d-md-none d-sm-none d-none">
+                            <nav>
+                                <ul>
+                                    <li class="has-dropdown">
+                                        <a class="links-main" href="#">Home</a>
+                                        <ul class="submenu">
+                                            <li><a href="index.html">Content Writing 01</a></li>
+                                            <li><a href="index-two.html">Content Writing 02</a></li>
+                                            <li><a href="index-three.html">Content Writing 03</a></li>
+                                            <li><a href="index-four.html">Ai Chat Bot</a></li>
+                                            <li><a href="index-five.html">Voice Generator</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="links-main" href="use-case.html">Use Cases</a></li>
+                                    <li class="has-dropdown mega-menu">
+                                        <a class="links-main" href="#">Pages</a>
+                                        <div class="rts-mega-menu">
+                                            <div class="wrapper">
+                                                <div class="row g-0">
+                                                    <div class="col-lg-3">
+                                                        <ul class="mega-menu-item">
+                                                            <li>
+                                                                <a href="about.html">
+                                                                    <img src="assets/images/mega-menu/01.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>About OpenUp</p>
+                                                                        <span>Get know about openup </span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="use-case.html">
+                                                                    <img src="assets/images/mega-menu/02.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Use Cases</p>
+                                                                        <span>provide detailed explan</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pricing.html">
+                                                                    <img src="assets/images/mega-menu/03.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Pricing</p>
+                                                                        <span>Openup provide pro price</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="log-in.html">
+                                                                    <img src="assets/images/mega-menu/04.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Login</p>
+                                                                        <span>Create content by ou</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <ul class="mega-menu-item">
+                                                            <li>
+                                                                <a href="blog.html">
+                                                                    <img src="assets/images/mega-menu/05.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Blog</p>
+                                                                        <span>Read openup artical</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="case-details.html">
+                                                                    <img src="assets/images/mega-menu/06.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Use Cases Details</p>
+                                                                        <span>provide detailed explan</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pricing-two.html">
+                                                                    <img src="assets/images/mega-menu/07.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Pricing 2</p>
+                                                                        <span>Openup provide pro price</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="registration.html">
+                                                                    <img src="assets/images/mega-menu/08.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Register</p>
+                                                                        <span>Make your account</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <ul class="mega-menu-item">
+                                                            <li>
+                                                                <a href="blog-details.html">
+                                                                    <img src="assets/images/mega-menu/09.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Blog Details</p>
+                                                                        <span>Read openup artical</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="use-case-2.html">
+                                                                    <img src="assets/images/mega-menu/10.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Use Cases 2</p>
+                                                                        <span>provide detailed explan</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="pricing-three.html">
+                                                                    <img src="assets/images/mega-menu/11.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Pricing 3</p>
+                                                                        <span>Openup provide pro price</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="reset.html">
+                                                                    <img src="assets/images/mega-menu/12.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Reset</p>
+                                                                        <span>Rest your possword</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <ul class="mega-menu-item">
+                                                            <li>
+                                                                <a href="contact.html">
+                                                                    <img src="assets/images/mega-menu/13.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Contact</p>
+                                                                        <span>Contact with openup</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="case-details-2.html">
+                                                                    <img src="assets/images/mega-menu/14.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Use Cases Details 2</p>
+                                                                        <span>provide detailed explan</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="faq.html">
+                                                                    <img src="assets/images/mega-menu/15.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>FAQ</p>
+                                                                        <span>Do you know openup</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="404.html">
+                                                                    <img src="assets/images/mega-menu/16.svg" alt="icon">
+                                                                    <div class="info">
+                                                                        <p>Error</p>
+                                                                        <span>Back to home</span>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                    <li><a class="links-main" href="feature.html">Feature</a></li>
+                                    <li><a class="links-main" href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- nav end -->
+                        <div class="button-area">
+                            <a href="log-in.html" class="rts-btn btn-lonly mr--30">Sign in</a>
+                            <a href="about.html" class="rts-btn btn-blur">Get Started</a>
+                        </div>
+
+                        <div class="menu-btn d-xl-none d-lg-none d-md-block d-sm-block" id="menu-btn">
+                            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="14" width="20" height="2" fill="#1F1F25"></rect>
+                                <rect y="7" width="20" height="2" fill="#1F1F25"></rect>
+                                <rect width="20" height="2" fill="#1F1F25"></rect>
+                            </svg>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- rts header area end -->
+
+
+    <!-- blog details bread crumb -->
+    <div class="bd-breadcrumb">
+
+    </div>
+    <!-- blog details bread crumb end -->
+
+
+    <!-- rts blog ddetailks area start -->
+    <div class="rts-blog-details-area-top rts-section-gapTop bg-smooth">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- top blog details start -->
+                    <div class="row top-blog-details-start align-items-center">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb--30">
+                            <div class="title-area">
+                                <h2 class="title">
+                                    Five Things You Need to Know
+                                    about Writing Articles
+                                </h2>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="authore-bd-area">
+                                <div class="main">
+                                    <img src="assets/images/blog/11.png" alt="blog">
+                                    <div class="info">
+                                        <span class="deg">Author</span>
+                                        <span class="name">samuel</span>
+                                    </div>
+                                </div>
+                                <div class="sub-area">
+                                    <p>Category</p>
+                                    <span class="deg">Blog Content</span>
+                                </div>
+                                <div class="sub-area">
+                                    <p>Purplish</p>
+                                    <span class="deg">15 may, 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt--30">
+                            <div class="main-image-big">
+                                <img src="assets/images/blog/10.jpg" alt="blog-imaeg">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- top blog details end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts blog ddetailks area ends -->
+
+    <!-- blog details inner area start -->
+    <div class="blog-detail-inenr-area pt--45 rts-section-gapBottom plr_sm--15 bg-smooth">
+        <div class="container-bd">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="para-area-wrapper">
+                        <p class="disc">
+                            As more consumers choose the internet and social media to interact with the brands they love, the need to be active on the social media with content has increased for businesses. And every platform demands a different type of content to be you successful. For example, Reels are the way to grow on Instagram for a lifestyle brand.
+                        </p>
+                        <p class="disc">
+                            daunting to create so much content manually. Whether you are a content creator, a marketer, or an entrepreneur, the content creation tools discussed in this blog post will help you nail the execution of your content marketing strategy.
+                        </p>
+                        <h4 class="title">10 Content creation tools to boost your productivity and make you more efficient</h4>
+                        <p class="disc">
+                            Deciding on the right content topics that bring results is not that easy. If you are still relying only on Google auto-populated prompts then your efforts are going to be half-baked. <br> <br>
+
+                            Content research tools provide insights into what topics are trending in your industry, what your target audience is searching for, and how to optimize content for search engines. These tools will help you get results for your efforts.
+                            Here are the best content research tools to help you should know about.
+                        </p>
+                        <img class="mb--30" src="assets/images/blog/12.jpg" alt="dsds">
+                        <h4 class="title">#1. ChatSonic - Like ChatGPT</h4>
+                        <p class="disc">
+                            There is no better tool than Chatsonic - Like ChatGPT with superpowers for content research. ChatGPT is a conversational AI technology that can understand, respond to, and generate text-based outputs. Chatsonic is the best alternative to ChatGPT as it overcomes the limitations of ChatGPT. You can speed up your content research by giving voice commands instead of typing, which is not possible on ChatGPT. The best part is the response speed is 2-3x faster than Google.
+                        </p>
+                        <div class="quote-area-bd">
+                            <div class="inner">
+                                <div class="icon">
+                                    <svg width="21" height="31" viewBox="0 0 21 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.8125 27.4102V25.125H15.1875L15.1289 27.4102C15.1289 27.7031 15.0117 28.1719 14.8359 28.4062L13.8398 29.9297C13.5469 30.3984 12.8438 30.75 12.2578 30.75H8.68359C8.09766 30.75 7.39453 30.3984 7.10156 29.9297L6.10547 28.4062C5.87109 28.1133 5.8125 27.7617 5.8125 27.4102ZM10.5 0.75C16.1836 0.808594 20.8125 5.37891 20.8125 11.0625C20.8125 13.6992 19.8164 16.043 18.2344 17.8008C17.2383 18.9141 15.7734 21.2578 15.1875 23.1914C15.1875 23.1914 15.1875 23.1914 15.1875 23.25H5.75391C5.75391 23.1914 5.75391 23.1914 5.75391 23.1914C5.16797 21.2578 3.70312 18.9141 2.70703 17.8008C1.125 15.9844 0.1875 13.6406 0.1875 11.0625C0.1875 5.61328 4.52344 0.808594 10.5 0.75ZM16.125 16.043C17.2969 14.6367 18 12.8789 18 11.0625C18 6.96094 14.6016 3.5625 10.4414 3.5625C5.8125 3.62109 3 7.42969 3 11.0625C3 12.8789 3.64453 14.6367 4.81641 16.043C5.75391 17.0391 6.86719 18.7383 7.6875 20.4375H13.2539C14.0742 18.7383 15.1875 17.0391 16.125 16.043ZM9.5625 5.4375C10.0312 5.4375 10.5 5.90625 10.5 6.43359C10.5 6.90234 10.0312 7.3125 9.5625 7.3125C7.98047 7.3125 6.75 8.60156 6.75 10.125C6.75 10.6523 6.28125 11.0625 5.8125 11.0625C5.28516 11.0625 4.875 10.6523 4.875 10.125C4.875 7.54688 6.92578 5.4375 9.5625 5.4375Z" fill="#563EED" />
+                                    </svg>
+                                </div>
+                                <h5 class="title">
+                                    ChatSonic is a more advanced AI chatbot than ChatGPT <br>
+                                    <span>due to its array of capabilities.</span>
+                                </h5>
+                            </div>
+                        </div>
+                        <h4 class="title">A robust tech stack of content creation tools makes you more efficient</h4>
+                        <p class="disc">
+                            AI content creation tools are game changers. These tools don’t only revolutionize the way content is created but also save you time from posting repetitive content. Looking at and going through so many tools can be quite overwhelming. The best thing to do is look for an all-in-one content creation tool.
+                        </p>
+                        <p class="disc">
+                            Use OpenUp 80+ powerful features like Instant article writer, paraphraser, website copy, and many more to fulfill every Ai content requirement you might have. Photosonic, a part of OpenUp can help you generate the perfect image to add visual appeal to your content. The best thing is you can use both OpenUp and Photosonic by just giving voice commands on Chatsonic.
+                            Boost your content creation with OpenUp today!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- blog details inner area end -->
+
+    <!-- related post area start -->
+    <div class="related-post-area-start rts-section-gapBottom bg-smooth">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="title">
+                        Related Post
+                    </h2>
+                </div>
+            </div>
+            <div class="row g-5 mt--10">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="#" class="thumbnail">
+                            <img src="assets/images/blog/07.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="#">
+                                    <h5 class="title">Five Things You Need to Know
+                                        about Writing Articles</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/04.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="#">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="#" class="thumbnail">
+                            <img src="assets/images/blog/08.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">blog Content</span>
+                                <span class="time">4 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="#">
+                                    <h5 class="title">15 AI Prompts to Supercharge
+                                        Sales &amp; Marketing Teams</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/05.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="#">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <!-- single blog area start -->
+                    <div class="single-blog-area-wrapper">
+                        <a href="#" class="thumbnail">
+                            <img src="assets/images/blog/09.jpg" alt="Blog_images">
+                        </a>
+                        <div class="inner-content">
+                            <div class="head">
+                                <span class="tag">Content Write</span>
+                                <span class="time">7 min Read</span>
+                            </div>
+                            <div class="body">
+                                <a href="#">
+                                    <h5 class="title">Introducing Infobase by Copy
+                                        ai: Your Team’s Brand Center</h5>
+                                </a>
+                                <div class="author-area">
+                                    <div class="author">
+                                        <img src="assets/images/blog/06.png" alt="blog-area">
+                                        <div class="info">
+                                            <p>samuel</p>
+                                            <span>Author</span>
+                                        </div>
+                                    </div>
+                                    <a href="#">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single blog area end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- related post area end -->
+
+
+
+
+
+
+
+
+
+    <!-- cta area start -->
+    <!-- cta area start -->
+    <div class="rts-cta-area rts-section-gapBottom  bg_faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-main-wrapper bg_image">
+                        <div class="left">
+                            <h3 class="title">
+                                All set to level up <br>
+                                your content game?
+                            </h3>
+                            <a href="about.html" class="rts-btn btn-primary">Get Started Now</a>
+                        </div>
+                        <div class="right">
+                            <img src="assets/images/cta/02.png" alt="cta-area">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- cta area end -->
+    <!-- cta area end -->
+
+
+    <!-- rts footer area start -->
+    <div class="rts-footer-area  bg-footer footer-one">
+        <div class="container rts-section-gapTop pb--100 pb_sm--30">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- footer main wrapper -->
+                    <div class="footer-one-main-wrapper">
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized left-logo">
+                            <div class="head">
+                                <a href="#">
+                                    <img src="assets/images/logo/01.svg" alt="logo">
+                                </a>
+                            </div>
+                            <div class="body">
+                                <p class="dsic">
+                                    Openup is an artificial intelligence trained to automate important tasks such writing optimized product descriptions.
+                                </p>
+                                <div class="social-style-two">
+                                    <ul>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-behance"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-discord"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized">
+                            <div class="head">
+                                <h6 class="title">Company</h6>
+                            </div>
+                            <div class="body">
+                                <ul class="menu">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="#">Community</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Affiliate Program</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized">
+                            <div class="head">
+                                <h6 class="title">Use Cases</h6>
+                            </div>
+                            <div class="body">
+                                <ul class="menu">
+                                    <li><a href="#">For Teams</a></li>
+                                    <li><a href="#">For Email Marketers</a></li>
+                                    <li><a href="#">For Blog Writers</a></li>
+                                    <li><a href="#">For social managers</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                        <!-- single sized  footer  -->
+                        <div class="footer-singl-wized input-area">
+                            <div class="head">
+                                <h6 class="title">News & Update</h6>
+                            </div>
+                            <div class="body">
+                                <form action="">
+                                    <div class="input-area-fill">
+                                        <input type="email" placeholder="Enter Your Email" required>
+                                        <button> Subscribe</button>
+                                    </div>
+                                </form>
+                                <p class="disc">
+                                    Subscribe our newsletter for future updates. don’t worry we don’t spam your email address
+                                </p>
+                            </div>
+                        </div>
+                        <!-- single sized  footer end -->
+                    </div>
+                    <!-- footer main wrapper end -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- footer-copyright-area start -->
+                    <div class="copy-right-start-two">
+                        <p><a href="https://reactheme.com/" target="_blank">Reactheme©</a> 2023. All Rights Reserved.</p>
+                        <ul>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <!-- footer-copyright-area end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts footer area end -->
+
+
+    <div id="anywhere-home" class="">
+    </div>
+
+    <!-- right switcher -->
+    <div class="modal-sidebar-scroll rts-dark-light">
+        <ul>
+            <li><a href="https://themewant.com/products/html/openup/"><span>Light</span><i class="rts-go-dark fal fa-moon"></i></a></li>
+            <li><a href="https://themewant.com/products/html/openup/dark-rtl"><span>RTL</span><i class="fa-solid fa-paragraph-left"></i></a></li>
+        </ul>
+    </div>
+    <!-- right switcher end -->
+
+    <!-- header style two -->
+    <div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu"><i class="far fa-times"></i></button>
+
+        <!-- mobile menu area start -->
+        <div class="mobile-menu-main">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+                    <li class="has-droupdown parent">
+                        <a href="#" class="main">Home</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="index.html">Home One</a></li>
+                            <li><a class="mobile-menu-link" href="index-two.html">Home Two</a></li>
+                            <li><a class="mobile-menu-link" href="index-three.html">Home Three</a></li>
+                            <li><a class="mobile-menu-link" href="index-four.html">Home Four</a></li>
+                            <li><a class="mobile-menu-link" href="index-five.html">Home Five</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-droupdown parent">
+                        <a href="#" class="main">Pages</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a class="mobile-menu-link" href="about.html">About Us</a></li>
+                            <li><a class="mobile-menu-link" href="blog.html">Blog</a></li>
+                            <li><a class="mobile-menu-link" href="blog-details.html">Blog Details</a></li>
+                            <li><a class="mobile-menu-link" href="contact.html">Contact</a></li>
+                            <li><a class="mobile-menu-link" href="use-case.html">Use Case</a></li>
+                            <li><a class="mobile-menu-link" href="use-case-2.html">Use Case 2</a></li>
+                            <li><a class="mobile-menu-link" href="case-details.html">Use Case Details</a></li>
+                            <li><a class="mobile-menu-link" href="case-details-2.html">Use Case Details</a></li>
+                            <li><a class="mobile-menu-link" href="pricing.html">Pricing</a></li>
+                            <li><a class="mobile-menu-link" href="pricing-two.html">Pricing Two</a></li>
+                            <li><a class="mobile-menu-link" href="pricing-three.html">Pricing Three</a></li>
+                            <li><a class="mobile-menu-link" href="faq.html">FAQ</a></li>
+                            <li><a class="mobile-menu-link" href="log-in.html">Log In</a></li>
+                            <li><a class="mobile-menu-link" href="registration.html">Registration</a></li>
+                            <li><a class="mobile-menu-link" href="reset.html">Reset</a></li>
+                            <li><a class="mobile-menu-link" href="404.html">Not Found</a></li>
+                            <!-- <li class="has-droupdown third-lvl">
+                                <a class="main" href="#">Project Details</a>
+                                <ul class="submenu-third-lvl mm-collapse">
+                                    <li><a href="project-details.html"></a>Project Details</li>
+                                    <li><a href="project-details-gallery.html"></a>Project Details Gallery</li>
+                                    <li><a href="project-details-vedio.html"></a>Project Details Vedio</li>
+                                    <li><a href="project-details-carousel.html"></a>Project Details carousel</li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li class="parent">
+                        <a href="feature.html" class="main">Feature</a>
+                    </li>
+                    <li class="parent">
+                        <a href="contact.html" class="main">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="rts-social-style-one pl--20 mt--100">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- mobile menu area end -->
+    </div>
+    <!-- header style two End -->
+
+
+    <!-- rts backto top start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;"></path>
+        </svg>
+    </div>
+    <!-- rts backto top end -->
+
+
+    <script src="{{url_for('static', filename='js/vendor/jquery.min.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/vendor/metismenu.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/plugins/bootstrap.min.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/plugins/swiper.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/plugins/contact.form.js')}}" defer></script>
+    <script src="{{url_for('static', filename='js/main.js')}}" defer></script>
+
+</body>
+
+</html>

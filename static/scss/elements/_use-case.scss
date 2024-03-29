@@ -1,0 +1,108 @@
+// use case area style here
+
+.single-use-case{
+    text-align: center;
+    padding: 40px;
+    border: 1px solid #E2E2FF;
+    border-radius: 10px;
+    transition: .3s;
+    @media #{$large-mobile} {
+        padding: 25px;
+    }
+    &:hover{
+        border-color: var(--color-primary);
+    }
+    .icon{
+        margin-bottom: 30px;
+    }
+    .title{
+        margin-bottom: 25px;
+    }
+    p.disc{
+        margin-bottom: 25px;
+    }
+    a.more-case-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #497696;
+        i{
+            margin-left: 10px;
+        }
+        &:hover{
+            color: var(--color-primary);
+            i{
+                color: var(--color-primary);
+            }
+        }
+    }
+}
+.container-use-case-d{
+    max-width: 875px;
+    margin: auto;
+}
+.thumbnail-case-top{
+    padding: 15px;
+    background: rgba(83, 81, 81, 0.06);
+    border: 1px solid rgba(151, 150, 233, 0.5);
+    backdrop-filter: blur(25px);
+    border-radius: 10px;
+    img{
+        width: 100%;
+    }
+}
+.section-seperatorBottom{
+    position: relative;
+    &::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: #EEEEEE;
+    }
+}
+.single-steps-wrapper{
+    margin: 50px 0;
+    position: relative;
+    .water{
+        position: absolute;
+        font-weight: 700;
+        font-size: 300px;
+        line-height: 300px;
+        left: -330px;
+        top: 200px;
+        text-transform: capitalize;
+        background: linear-gradient(180deg, #EEEEEE 0%, rgba(238, 238, 238, 0) 99.63%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        transform: rotate(-90deg);
+        &.odd{
+            right: -330px;
+            left: auto;
+        }
+    }
+    .title{
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 44px;
+        span{
+            color: var(--color-primary);
+        }
+    }
+    .thumbnail-image{
+        img{
+            padding: 15px;
+            background: #F6F6F6;
+            border: 1px solid #BCBCFF;
+            border-radius: 10px;
+        }
+    }
+}
