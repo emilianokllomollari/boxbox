@@ -10,9 +10,9 @@ function appendMessage(message, sender) {
 
         var prefixSpan = document.createElement('span');
         prefixSpan.textContent = "You:";
-        prefixSpan.className = 'user-message-prefix'; 
+        prefixSpan.className = 'terminal-prefix'; 
 
-        var messageDiv = document.createElement('div');
+        var messageDiv = document.createElement('pre');
         messageDiv.textContent = message;
         messageDiv.className = 'user-message-content'; 
 
@@ -41,6 +41,7 @@ function appendMessage(message, sender) {
 
     scrollToBottom();
 }
+
 
 // Example scrollToBottom function
 function scrollToBottom() {

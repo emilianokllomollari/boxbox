@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, session
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column, mapper
 from sqlalchemy import Integer, String, Text
 from werkzeug.security import generate_password_hash, check_password_hash
 from form import RegisterForm, LoginForm, CreateChatForm
@@ -11,6 +11,9 @@ import google.generativeai as genai
 from openai import OpenAI
 import datetime
 import re
+from concurrent.futures import ThreadPoolExecutor
+import asyncio
+
 
 gemini_api = "AIzaSyCzQC_uvxEEDbFRhYDcdpURTQtcpFU2NGY"
 gpt_key='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'
@@ -289,30 +292,36 @@ def handle_send_message_event(data):
     chat_id = data['chat_id']
     message_content = data['message']
     
-    # Save the user message to the database
-    user_message = Message(content=message_content, chat_session_id=chat_id, sender='user')
-    db.session.add(user_message)
-    
-    # Get AI response
-    gemini_response = gemini_answer(message_content)
-    gpt3_5_response = ask_gpt(message_content)
+    # Prepare user message
+    user_message = {'content': message_content, 'chat_session_id': chat_id, 'sender': 'user'}
 
-    # Remove <b> tags from AI responses
+    # Use ThreadPoolExecutor to call gemini_answer and ask_gpt concurrently
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        future_gemini = executor.submit(gemini_answer, message_content)
+        future_gpt3_5 = executor.submit(ask_gpt, message_content)
+
+        gemini_response = future_gemini.result()
+        gpt3_5_response = future_gpt3_5.result()
+
+    # Clean AI responses from <b> tags
     gemini_response_cleaned = remove_bold_tags(gemini_response)
     gpt3_5_response_cleaned = remove_bold_tags(gpt3_5_response)
 
-    # Save the AI response to the database
-    gemini_message = Message(content=gemini_response_cleaned, chat_session_id=chat_id, sender='gemini')
-    gpt3_5_message = Message(content=gpt3_5_response_cleaned, chat_session_id=chat_id, sender='gpt3_5')
+    # Prepare AI messages
+    gemini_message = {'content': gemini_response_cleaned, 'chat_session_id': chat_id, 'sender': 'gemini'}
+    gpt3_5_message = {'content': gpt3_5_response_cleaned, 'chat_session_id': chat_id, 'sender': 'gpt3_5'}
 
-    db.session.add(gemini_message)
-    db.session.add(gpt3_5_message)
-    
+    # Collect all messages to insert
+    messages_data = [user_message, gemini_message, gpt3_5_message]
+
+    # Bulk insert messages
+    db.session.bulk_insert_mappings(Message, messages_data)
     db.session.commit()
 
-    # Emit only the AI response back to the client
+    # Emit the AI responses back to the client
     emit('gemini_message', {'message': gemini_response, 'sender': 'gemini'})
     emit('gpt3_5_message', {'message': gpt3_5_response, 'sender': 'gpt3_5'})
+
     
 ###################################################################################################################
 
