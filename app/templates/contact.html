@@ -32,17 +32,17 @@
                     <div class="nav-area-main d-xl-block d-lg-block d-md-none d-sm-none d-none">
                         <nav>
                             <ul>
-                                <li><a class="links-main" href="{{url_for('home')}}">Home</a></li>
-                                <li><a class="links-main" href="{{url_for('about')}}">About</a></li>
-                                <li><a class="links-main" href="{{url_for('blog')}}">Blog</a></li>
-                                <li><a class="links-main" href="{{url_for('contact')}}">Contact</a></li>
+                                <li><a class="links-main" href="{{url_for('main.home')}}">Home</a></li>
+                                <li><a class="links-main" href="{{url_for('main.about')}}">About</a></li>
+                                <li><a class="links-main" href="#">Blog</a></li>
+                                <li><a class="links-main" href="{{url_for('main.contact')}}">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                     <!-- nav end -->
                     <div class="button-area">
-                        <a href="{{url_for('login')}}" class="rts-btn btn-lonly mr--30">Sign in</a>
-                        <a href="{{url_for('register')}}" class="rts-btn btn-blur">Get Started</a>
+                        <a href="{{url_for('auth.login')}}" class="rts-btn btn-lonly mr--30">Sign in</a>
+                        <a href="{{url_for('auth.register')}}" class="rts-btn btn-blur">Get Started</a>
                     </div>
 
                     <div class="menu-btn d-xl-none d-lg-none d-md-block d-sm-block" id="menu-btn">
@@ -70,7 +70,7 @@
                         <div class="title-area">
                             <h1 class="bread-title">Contact Us</h1>
                             <div class="inner-wrapper">
-                                <a href="index.html">Home</a>/
+                                <a href="{{url_for('main.home')}}">Home</a>/
                                 <a href="#" class="active">Contact</a>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                                 All set to level up <br>
                                 your content game?
                             </h3>
-                            <a href="about.html" class="rts-btn btn-primary">Get Started Now</a>
+                            <a href="{{url_for('main.about')}}" class="rts-btn btn-primary">Get Started Now</a>
                         </div>
                         <div class="right">
                             <img src="assets/images/cta/02.png" alt="cta-area">

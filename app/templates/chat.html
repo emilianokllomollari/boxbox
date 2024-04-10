@@ -59,7 +59,7 @@
             <hr class="dropdown-divider" />
           </li>
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="{{ url_for('logout') }}">
+            <a class="dropdown-item d-flex align-items-center" href="{{ url_for('auth.logout') }}">
               <img src="{{ url_for('static', filename='images/icons/log-out.svg') }}" class="mr-2" />
               Log Out
             </a>
@@ -81,7 +81,7 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-dark" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
-          <form action="/change-name" method="post">
+          <form action="/auth/change-name" method="post">
             <div class="input-group mb-3">
               <input type="text" class="form-control" name="new_name" placeholder="New Name"
                 aria-describedby="button-addon2" />
@@ -99,7 +99,7 @@
     <h3 class="d-flex my-2 justify-content-center align-items-center text-white boxbox-font">
       BoxBox
     </h3>
-    <a href="{{ url_for('create_chat') }}" class="btn w-100 mb-2 text-white new-chat">+ New Chat</a>
+    <a href="{{ url_for('chat.create_chat') }}" class="btn w-100 mb-2 text-white new-chat">+ New Chat</a>
     <ul class="list-group list-group-flush text-white" id="chat-list">
       {% for chat in my_chats %}
       <li class="mb-2 d-flex justify-content-between align-items-center chat-item">
@@ -107,7 +107,7 @@
           data-chat-id="{{chat.id}}" />
         <a id="chat-btn-{{chat.id}}"
           class="chat-btn flex-grow-1 my-1 text-start {% if chat.id == current_chat_id %}active{% endif %}"
-          href="{{ url_for('my_chats', chat_id=chat.id) }}" {% if chat.id==current_chat_id %}
+          href="{{ url_for('chat.my_chats', chat_id=chat.id) }}" {% if chat.id==current_chat_id %}
           style="color: white; border-left-color: white; border-bottom-color: white;" {% endif %}>{{ chat.name }}</a>
 
 

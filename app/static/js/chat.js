@@ -120,7 +120,7 @@ function submitNewChatName(chatId, newName) {
     if (!newName.trim()) return; // Avoid empty names
 
     // Replace 'fetchEndpoint' with the correct endpoint URL
-    const fetchEndpoint = `/rename_chat/${chatId}`;
+    const fetchEndpoint = `/chat/rename_chat/${chatId}`;
 
     fetch(fetchEndpoint, {
         method: 'POST',

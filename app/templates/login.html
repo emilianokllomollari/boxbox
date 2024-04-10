@@ -17,7 +17,7 @@
         <!-- Your form content -->
         <div class="centered-form-container">
             <div class="form-signin">
-                <form action="{{ url_for('login')}}" method="post">
+                <form action="{{ url_for('auth.login')}}" method="post">
                     <h1 class="h3 mb-3 fw-normal text-center">Sign In</h1>
                     {{ form.hidden_tag() }}
                     <div class="form-floating mb-3">
@@ -34,7 +34,7 @@
                       </div>
                       {{ form.submit(class="w-100 btn btn-lg button-color") }}
                     <div class="mt-4 text-center">
-                        Don't have an account? <a href="{{url_for('register')}}" class="text-color">Sign Up</a>
+                        Don't have an account? <a href="{{url_for('auth.register')}}" class="text-color">Sign Up</a>
                       </div>
                       
                 </form>
