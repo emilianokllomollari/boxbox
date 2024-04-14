@@ -1,19 +1,12 @@
-from flask import Flask, render_template, redirect, url_for, flash, request, jsonify, session, Blueprint
-from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import relationship, DeclarativeBase, Mapped, mapped_column, mapper
-from sqlalchemy import Integer, String, Text
-from werkzeug.security import generate_password_hash, check_password_hash
-from app.form import RegisterForm, LoginForm, CreateChatForm
-from sqlalchemy.exc import SQLAlchemyError
-from flask_socketio import SocketIO, send, emit
-import datetime
+from flask import render_template, redirect, url_for, flash, request, jsonify, session, Blueprint
+from flask_login import current_user, login_required
+from flask_socketio import  emit
 from app import db
 from app import socketio
-from app.models import User, ChatSession, Message
+from app.models import ChatSession, Message
 from app.utils.ai_handlers import gemini_answer, ask_gpt
 from concurrent.futures import ThreadPoolExecutor
-import asyncio
+
 
 chat = Blueprint('chat', __name__)
 
@@ -51,7 +44,7 @@ def my_chats(chat_id):
             # my_chats.sort(key=lambda x: x.id == chat_id, reverse=True)
         else:
             flash("You do not have permission to view this chat or it does not exist.", "error")
-            return redirect(url_for('my_chats'))
+            return redirect(url_for('chat.my_chats'))
 
     return render_template('chat.html', my_chats=my_chats, current_chat_id=chat_id, chat=chat, messages=messages, name=current_user.name)
 

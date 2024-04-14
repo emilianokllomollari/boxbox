@@ -24,27 +24,27 @@ def create_app():
     db.init_app(app)
     login_manager.init_app(app)
     socketio.init_app(app, manage_session=False, cors_allowed_origins="*")
-
-    # Register blueprints
-    from app.routes.main import main
-    app.register_blueprint(main)
     
     @login_manager.user_loader
     def load_user(user_id):
         from .models import User  # Import here to avoid circular imports
         return User.query.get(int(user_id))
     
-    from app.routes.auth import auth
-    app.register_blueprint(auth, url_prefix='/auth')
-
-    from app.routes.chat import chat
-    app.register_blueprint(chat, url_prefix='/chat')
-
     # Shell context processor
     @app.shell_context_processor
     def make_shell_context():
         from app.models import User, Message  # Assuming models are defined here
         return {'db': db, 'User': User, 'Message': Message}
+
+    # Register blueprints
+    from app.routes.main import main
+    app.register_blueprint(main)
+    
+    from app.routes.auth import auth
+    app.register_blueprint(auth, url_prefix='/auth')
+
+    from app.routes.chat import chat
+    app.register_blueprint(chat, url_prefix='/chat')
     
 
     with app.app_context():
